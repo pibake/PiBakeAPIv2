@@ -7,7 +7,6 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// entry point ??
 func main() {
 	router := mux.NewRouter()
 
