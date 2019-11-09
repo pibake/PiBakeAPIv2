@@ -15,7 +15,7 @@ func main() {
 
 	router.HandleFunc("/api/temps", GetTemps).Methods("GET")
 	router.HandleFunc("/api/temps/{id}", GetTempOne).Methods("GET")
-	router.HandleFunc("/api/temps/{id}", CreateTempOne).Methods("POST")
+	router.HandleFunc("/api/temps/create", CreateTempOne).Methods("POST")
 	router.HandleFunc("/api/temps/{id}", DeleteTempOne).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":8000", router))
