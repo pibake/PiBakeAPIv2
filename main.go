@@ -8,12 +8,15 @@ import (
 )
 
 func main() {
+	var session DatabaseSession
+	db := NewSQLDB("wyatt", "wyattisawesome", "thepibake.com", "3306", "PiBake_Test")
+	session.session = db.OpenSQL()
 	router := mux.NewRouter()
 
-	router.HandleFunc("/temps", GetTemps).Methods("GET")
-	router.HandleFunc("/temps/{id}", GetTempOne).Methods("GET")
-	router.HandleFunc("/temps/{id}", CreateTempOne).Methods("POST")
-	router.HandleFunc("/temps/{id}", DeleteTempOne).Methods("DELETE")
+	router.HandleFunc("/api/temps", GetTemps).Methods("GET")
+	router.HandleFunc("/api/temps/{id}", GetTempOne).Methods("GET")
+	router.HandleFunc("/api/temps/{id}", CreateTempOne).Methods("POST")
+	router.HandleFunc("/api/temps/{id}", DeleteTempOne).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":8000", router))
 
