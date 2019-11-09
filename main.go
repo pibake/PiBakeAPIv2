@@ -13,6 +13,7 @@ func main() {
 	session.session = db.OpenSQL()
 	router := mux.NewRouter()
 
+	router.HandleFunc("/api", root).Methods("GET")
 	router.HandleFunc("/api/temps", GetTemps).Methods("GET")
 	router.HandleFunc("/api/temps/{id}", GetTempOne).Methods("GET")
 	router.HandleFunc("/api/temps/create", CreateTempOne).Methods("POST")

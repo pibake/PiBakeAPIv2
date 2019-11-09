@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -13,6 +14,10 @@ type DatabaseSession struct {
 
 type JSONResponse struct {
 	Response string `json:"response"`
+}
+
+func root(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "PiBakeAPI v2, written and developed by Wyatt J. Miller, copyright 2019")
 }
 
 func GetTemps(w http.ResponseWriter, r *http.Request) {
