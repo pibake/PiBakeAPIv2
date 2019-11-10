@@ -8,9 +8,10 @@ import (
 )
 
 func main() {
-	var session DatabaseSession
-	db := NewSQLDB("wyatt", "wyattisawesome", "thepibake.com", "3306", "PiBake_Test")
-	session.session = db.OpenSQL()
+	db := NewSQLDB("wyatt", "wyattisawesome", "localhost", "3306", "PiData_Test")
+	session = db.OpenSQL()
+	defer session.Close()
+
 	router := mux.NewRouter()
 
 	router.HandleFunc("/api", root).Methods("GET")

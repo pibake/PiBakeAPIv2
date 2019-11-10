@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -30,10 +29,16 @@ func NewSQLDB(username, password, ipAddr, port, databaseName string) *SQLDatabas
 
 // OpenSQL method: Opens a SQL database, should be started before using the service
 func (s *SQLDatabase) OpenSQL() *sql.DB {
-	result, err := sql.Open("mysql", fmt.Sprintf("%v:%v@(%v:%v)/%v", s.username, s.password, s.ipAddr, s.port, s.databaseName))
+	result, err := sql.Open("mysql", s.username+":"+s.password+"@("+s.ipAddr+":"+s.port+")/"+s.databaseName)
 
 	if err != nil {
 		log.Fatal("Database is not accessable. Please check your settings!")
+	}
+
+	err = result.Ping()
+
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	return result
