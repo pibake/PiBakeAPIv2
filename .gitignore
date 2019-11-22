@@ -1,3 +1,4 @@
 PiBakeAPIv2
 vendor/
 .vscode/
+__debug_bin
