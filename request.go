@@ -9,7 +9,7 @@ import (
 var session *sql.DB
 
 type JSONResponse struct {
-	Response string `json:"response"`
+	Response int `json:"response"`
 }
 
 func root(w http.ResponseWriter, r *http.Request) {

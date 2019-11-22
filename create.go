@@ -11,13 +11,14 @@ import (
 func CreateTempOne(w http.ResponseWriter, r *http.Request) {
 	var entry Temp
 	var count int
+	
 	decoder := json.NewDecoder(r.Body)
-
 	err := decoder.Decode(&entry)
 
 	if err != nil {
 		log.Println("Couldn't decode the JSONs!")
-		json.NewEncoder(w).Encode(JSONResponse{"400"})
+		json.NewEncoder(w).Encode(JSONResponse{http.StatusBadRequest})
+		return
 	}
 
 	query1, err := session.Query("SELECT COUNT(*) FROM `pi` WHERE `uuid` = ?", entry.UUID)
@@ -26,14 +27,14 @@ func CreateTempOne(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		log.Println("Database goofed: query1")
-		json.NewEncoder(w).Encode(JSONResponse{"400"})
+		json.NewEncoder(w).Encode(JSONResponse{http.StatusBadRequest})
+		return
 	}
 
 	// check to see if any rows match the supplied UUID
 	for query1.Next() {
 		if err := query1.Scan(&count) ; err != nil {
 			log.Println("Scanning the database did a thing scanning the UUIDs")
-			json.NewEncoder(w).Encode(JSONResponse{"500"})
 		}
 	}
 
@@ -45,7 +46,8 @@ func CreateTempOne(w http.ResponseWriter, r *http.Request) {
 
 		if err != nil {
 			log.Println("Database goofed: query2")
-			json.NewEncoder(w).Encode(JSONResponse{"400"})
+			json.NewEncoder(w).Encode(JSONResponse{http.StatusBadRequest})
+			return
 		}
 	}
 
@@ -55,6 +57,7 @@ func CreateTempOne(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		log.Println("Database goofed: query3")
-		json.NewEncoder(w).Encode(JSONResponse{"400"})
+		json.NewEncoder(w).Encode(JSONResponse{http.StatusBadRequest})
+		return
 	}
 }
