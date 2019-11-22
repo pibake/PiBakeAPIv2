@@ -10,17 +10,17 @@ import (
 
 func main() {
 	// placeholder creds, don't expect them to get you anywhere
-	db := NewSQLDB("wymillerlinux", "123456789", "localhost", "3306", "PiBakeAPIv2")
+	db := NewSQLDB("pibake", "awesomestuff", "localhost", "3306", "PiBakeAPI")
 	session = db.OpenSQL()
 	defer session.Close()
 
 	router := mux.NewRouter()
 
 	router.HandleFunc("/api", root).Methods("GET")
-	router.HandleFunc("/api/temps", GetTemps).Methods("GET") // placeholder
-	router.HandleFunc("/api/temps/{id}", GetTempOne).Methods("GET") // placeholder
-	router.HandleFunc("/api/temps/create", CreateTempOne).Methods("POST")
-	router.HandleFunc("/api/temps/{id}", DeleteTempOne).Methods("DELETE") // placeholder
+	router.HandleFunc("/api/temp", GetTemps).Methods("GET") // placeholder
+	router.HandleFunc("/api/temp/{id}", GetTempOne).Methods("GET") // placeholder
+	router.HandleFunc("/api/temp/create", CreateTempOne).Methods("POST")
+	router.HandleFunc("/api/temp/{id}", DeleteTempOne).Methods("DELETE") // placeholder
 
 	fmt.Println("Starting PiBakeAPI version 2...")
 
