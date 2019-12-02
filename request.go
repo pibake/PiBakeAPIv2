@@ -15,10 +15,12 @@ type JSONResponse struct {
 	Response int `json:"response"`
 }
 
+// TempResponse struct: Response back for getting one temperature
 type TempResponse struct {
 	Temp Temp `json:"response"`
 }
 
+// TempsResponse struct: Response back for getting all of the temperatures
 type TempsResponse struct {
 	Temps []Temp `json:"response"`
 }
