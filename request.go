@@ -31,7 +31,26 @@ func root(w http.ResponseWriter, r *http.Request) {
 
 // GetTemps function: it's only a placeholder currently
 func GetTemps(w http.ResponseWriter, r *http.Request) {
-	// get all code goes here
+	var entry Temp
+	var temps []Temp
+
+	query, err := session.Query("SELECT * FROM `tempdata`")
+
+	if err != nil {
+		json.NewEncoder(w).Encode(JSONResponse{http.StatusBadRequest})
+		return
+	} 
+
+	for query.Next() {
+		err = query.Scan(&entry.UUID, &entry.Time, &entry.Date, &entry.TempF, &entry.TempC)
+		temps = append(temps, entry)
+	}
+
+	if err != nil {
+		json.NewEncoder(w).Encode(JSONResponse{http.StatusBadGateway})
+	} else {
+		json.NewEncoder(w).Encode(TempsResponse{temps})
+	}
 }
 
 // GetTempOne function: WIP
