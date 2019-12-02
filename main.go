@@ -10,11 +10,11 @@ import (
 
 func main() {
 	// placeholder creds, don't expect them to get you anywhere
-	db := NewSQLDB("pibake", "awesomestuff", "localhost", "3306", "PiBakeAPI")
+	db := NewSQLDB("wyatt", "wyattisawesome", "localhost", "3306", "PiData_Test")
 	session = db.OpenSQL()
 	defer session.Close()
 
-	router := mux.NewRouter()
+	router := mux.NewRouter().StrictSlash(true)
 
 	router.HandleFunc("/api", root).Methods("GET")
 	router.HandleFunc("/api/temp", GetTemps).Methods("GET") // placeholder
