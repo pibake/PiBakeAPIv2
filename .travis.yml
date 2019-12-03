@@ -1,0 +1,3 @@
+langauage: go
+go: 1.13
+script: dep ensure && go build
