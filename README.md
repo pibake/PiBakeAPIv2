@@ -4,7 +4,7 @@ PiBakeAPI version 2 beta Non-Sensical Edition
 Before, we used the SSH technology to get temperatures from the Raspberry Pi to our server. It looks good on paper
 but in practice, we knew there was some flaws. After the project was done, this repository was not touched. Until now!
 
-This piece of software is a RESTful API that sits on some server and hands out and takes in requests as any other RESTful API would. This would supersede the original RESTful API buit it was never completed. That API was built in PHP and is right [here](https://github.com/pibake/PiBakeAPI). Nothing really happened to it, unfortunately.
+This piece of software is a RESTful API that sits on some server and hands out and takes in requests as any other RESTful API would. This would supersede the original RESTful API but it was never completed. That API was built in PHP and is right [here](https://github.com/pibake/PiBakeAPI). Nothing really happened to it, unfortunately.
 
 Please note that this software is in a beta state as of now. I would like to have in a stable state some time in future!
 
@@ -31,7 +31,11 @@ give a prompt back.
 
 ## Troubleshooting
 
-It shouldn't crash. If it happens to crash, [email me!](mailto:wjmiller2016@gmail.com)
+If need help setting your `$GOPATH`, check this [out](https://www.digitalocean.com/community/tutorials/understanding-the-gopath) if you need help understanding `$GOPATH`.
+
+In terms of running the program is concerned, it shouldn't crash. If it happens to crash, [email me!](mailto:wjmiller2016@gmail.com)
+
+If you found a bug, please file an issue!
 
 ## Contributing
 
