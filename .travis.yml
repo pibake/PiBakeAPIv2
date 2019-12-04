@@ -1,4 +1,4 @@
-langauage: go
+language: go
 go: 
-  - 1.13.x
+  - "1.13"
 script: dep ensure && go build
