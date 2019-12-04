@@ -1,4 +1,4 @@
-# PiBakeAPIv2
+# PiBakeAPIv2 [![Build Status](https://travis-ci.com/pibake/PiBakeAPIv2.svg?branch=master)](https://travis-ci.com/pibake/PiBakeAPIv2)
 PiBakeAPI version 2 beta Non-Sensical Edition
 
 Before, we used the SSH technology to get temperatures from the Raspberry Pi to our server. It looks good on paper
