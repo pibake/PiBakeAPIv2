@@ -1,4 +1,4 @@
 language: go
 go: 
   - "1.13"
-script: dep ensure && go build
+script: go build
