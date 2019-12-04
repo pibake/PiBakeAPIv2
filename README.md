@@ -14,9 +14,9 @@ If you have Go installed, run the following:
 
 `go get github.com/pibake/PiBakeAPIv2`
 
-If you have `godep` installed, please install it [here](https://github.com/golang/dep#installation). `godep` is our dependency manager for this project. 
+If you do not have `godep` installed, please install it [here](https://github.com/golang/dep#installation). `godep` is our dependency manager for this project. 
 
-Once you `godep` installed, please run the following to install all of the dependencies needed for the project:
+Once you `godep` installed or you have it installed already, please run the following to install all of the dependencies needed for the project:
 
 `dep ensure`
 
